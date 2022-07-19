@@ -16,7 +16,7 @@ function Drawer() {
 
           <div className="mr-20 flex">
             <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-            <b>12 999 uah</b>
+            <b>10 500 uah</b>
           </div>
           <img className="removeBtn" src="/img/btnRemove.svg" alt="remove" />
         </div>
@@ -29,7 +29,7 @@ function Drawer() {
 
           <div className="mr-20 flex">
             <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-            <b>12 999 uah</b>
+            <b>10 500 uah</b>
           </div>
           <img className="removeBtn" src="/img/btnRemove.svg" alt="remove" />
         </div>
