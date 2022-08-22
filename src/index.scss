@@ -33,37 +33,33 @@ header {
     }
 }
 
-
 .cartEmpty {
     text-align: center;
-  
+
     p {
-      width: 280px;
-      line-height: 24px;
+        width: 280px;
+        line-height: 24px;
     }
-  
+
     .greenButton {
-      width: 245px;
-      margin-top: 20px;
-  
-      &:hover {
-        img {
-          transform: rotate(180deg) translateX(3px);
+        width: 245px;
+        margin-top: 20px;
+
+        &:hover {
+            img {
+                transform: rotate(180deg) translateX(3px);
+            }
         }
-      }
-  
-      img {
-        position: relative;
-        top: 1px;
-        transform: rotate(180deg);
-        margin-right: 15px;
-        transition: transform 0.15s ease-in-out;
-      }
+
+        img {
+            position: relative;
+            top: 1px;
+            transform: rotate(180deg);
+            margin-right: 15px;
+            transition: transform 0.15s ease-in-out;
+        }
     }
-  }
-
-
-
+}
 
 .search-block {
     border: 1px solid #f3f3f3;
@@ -120,8 +116,6 @@ header {
     }
 }
 
-
-
 .cartTotalBlock {
     ul {
         display: block;
@@ -146,6 +140,12 @@ header {
 .greenButton {
     position: relative;
 
+    &:disabled {
+        animation: button-loading 0.6s ease-in-out infinite;
+    }
+
+    
+
     &:hover {
         img {
             transform: translateX(5px);
@@ -156,8 +156,6 @@ header {
         right: 30px;
         top: 20px;
         transition: trancform 0.15s ease-in-out;
-
-
     }
 }
 
@@ -166,12 +164,17 @@ header {
     height: 55px;
     background: #9dd558;
     border-radius: 18px;
-    border:  0; 
+    border: 0;
     color: #fff;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition:  background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+
+    &:disabled {
+        background-color: #bebebe !important;
+        cursor: default;
+    }
 
     &:hover {
         background: lighten($color: #9dd558, $amount: 5%);
@@ -214,5 +217,17 @@ header {
         &:hover {
             opacity: 1;
         }
+    }
+}
+
+@keyframes button-loading {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
     }
 }
