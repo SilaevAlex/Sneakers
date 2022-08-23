@@ -6,6 +6,7 @@ import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import Orders from "./pages/Orders";
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -84,16 +85,26 @@ function App() {
 
   return (
     <AppContext.Provider
-      value={{ cartItems, favorites, items, isItemAdded, onAddToFavorite, setCardOpened, setCartItems }}
+      value={{
+        cartItems,
+        favorites,
+        onAddToCart,
+        items,
+        isItemAdded,
+        onAddToFavorite,
+        setCardOpened,
+        setCartItems,
+      }}
     >
       <div className="wrapper clear">
-        {cartOpened && (
-          <Drawer
+        <div>
+        <Drawer
             items={cartItems}
             onClose={() => setCardOpened(false)}
             onRemove={onRemoveItem}
+            opened={cartOpened}
           />
-        )}
+        </div>
 
         <Header onClickCart={() => setCardOpened(true)} />
         <Routes>
@@ -114,7 +125,9 @@ function App() {
             }
           />
         </Routes>
-
+        <Routes>
+          <Route path="/orders" element={<Orders />} />
+        </Routes>
         <Routes>
           <Route path="/favorites" element={<Favorites />} />
         </Routes>

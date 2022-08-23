@@ -1,17 +1,19 @@
 import React from "react";
 import axios from "axios";
-import AppContext from "../context";
-import Info from "./Info";
+import {useCart} from "../../hooks/useCart"
+import styles from "./Drawer.module.scss"
+ import Info from "../Info";
 
 const delay = (ms) => {
-  new Promise((resolve, reject) => setTimeout(resolve, ms));
+  new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-function Drawer({ onClose, onRemove, items = [] }) {
-  const { cartItems, setCartItems } = React.useContext(AppContext);
+function Drawer({ onClose, onRemove, items = [], opened}) {
+  const {cartItems, setCartItems, totalPrice} = useCart();
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplite, setIsOrderComplite] = React.useState();
   const [isLoading, setIsLoading] = React.useState(false);
+
 
   const onClickOrder = async () => {
     try {
@@ -38,8 +40,8 @@ function Drawer({ onClose, onRemove, items = [] }) {
     setIsLoading(false);
   };
   return (
-    <div className="overlay">
-      <div className="drawer">
+    <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
+      <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
           Корзина{" "}
           <img
@@ -81,12 +83,12 @@ function Drawer({ onClose, onRemove, items = [] }) {
                 <li>
                   <span>Итого</span>
                   <div></div>
-                  <b>21 000 uah</b>
+                  <b>{totalPrice} UAH</b>
                 </li>
                 <li>
-                  <span>Налог 5%:</span>
+                  <span>Налог 9%:</span>
                   <div></div>
-                  <b>1050 uah</b>
+                  <b>{(totalPrice / 100) * 9} UAH</b>
                 </li>
               </ul>
               <button
