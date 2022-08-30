@@ -10,7 +10,7 @@ const { setCardOpened } = React.useContext(AppContext);
       <h2>{title}</h2>
       <p className="opacity-6">{description}</p>
       <button onClick={() => setCardOpened(false)} className="greenButton">
-        <img src="/img/arrow.svg" alt="arrow" /> Вернуться назад
+        <img src="img/arrow.svg" alt="arrow" /> Вернуться назад
       </button>
     </div>
   );

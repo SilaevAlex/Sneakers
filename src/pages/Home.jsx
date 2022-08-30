@@ -40,12 +40,12 @@ item.title
       <div className="d-flex align-center justify-between mb-40">
         <h1>{searchValue ? `Поиск по : ${searchValue}` : `Все кроссовки`}</h1>
         <div className="search-block d-flex">
-          <img src="/img/search.svg" alt="Search" />
+          <img src="img/search.svg" alt="Search" />
           {searchValue && (
             <img
               onClick={() => setSearchValue("")}
               className="clear cu-p"
-              src="/img/btnRemove.svg"
+              src="img/btnRemove.svg"
               alt="clear"
             />
           )}
